@@ -232,7 +232,8 @@ class Hero extends InventoryHaver {
 
     character.xp_bonuses.multiplier.levels.all_skill =
       (character.xp_bonuses.multiplier.levels.all_skill || 1) *
-      total_skill_xp_multiplier;
+      total_skill_xp_multiplier *
+      character.xp.current_level;
 
     let gains = `<br>HP increased by ${gained_hp}<br>Stamina increased by ${gained_stamina}`;
     if (gained_str > 0) {
