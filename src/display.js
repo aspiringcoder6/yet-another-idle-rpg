@@ -4517,7 +4517,7 @@ function update_displayed_xp_bonuses() {
   data_entry_divs.character.innerHTML = `<span class="data_entry_name">Base hero xp gain:</span><span class="data_entry_value">x${
     Math.round(100 * get_hero_xp_gain()) / 100
   }</span>`;
-  data_entry_divs.skills.innerHTML = `<span class="data_entry_name">Base skill xp gain:</span><span class="data_entry_value">x${
+  data_entry_divs.skills.innerHTML = `<span class="data_entry_name">Base skill xp gain (test):</span><span class="data_entry_value">x${
     Math.round(100 * get_skills_overall_xp_gain()) / 100
   }</span>`;
 }
