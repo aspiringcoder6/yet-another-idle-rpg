@@ -202,17 +202,13 @@ class Hero extends InventoryHaver {
     let gained_int = 0;
 
     const gained_skill_xp_multiplier = 2;
-    let total_skill_xp_multiplier = 1;
+    let total_skill_xp_multiplier = 2;
 
     for (let i = character.xp.current_level + 1; i <= level; i++) {
-      if (i % 2 == 1) {
-        gained_str += Math.ceil(i / 10);
-        gained_int += Math.ceil(i / 10);
-      } else {
-        gained_agi += Math.ceil(i / 10);
-        gained_dex += Math.ceil(i / 10);
-      }
-
+      gained_str += Math.ceil(i / 10);
+      gained_int += Math.ceil(i / 10);
+      gained_agi += Math.ceil(i / 10);
+      gained_dex += Math.ceil(i / 10);
       gained_hp += 10 * Math.ceil(i / 10);
       gained_stamina += 5; //5 * Math.ceil(i/10) ?;
       total_skill_xp_multiplier =
