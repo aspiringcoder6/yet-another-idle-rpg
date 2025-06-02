@@ -148,8 +148,7 @@ class Hero extends InventoryHaver {
     if (use_bonus) {
       xp_to_add *=
         (character.xp_bonuses.total_multiplier.hero || 1) *
-        (character.xp_bonuses.total_multiplier.all || 1) *
-        character.xp.current_level;
+        (character.xp_bonuses.total_multiplier.all || 1);
     }
     character.xp.total_xp += xp_to_add;
 
