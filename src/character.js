@@ -141,14 +141,15 @@ class Hero extends InventoryHaver {
       xp_to_next_lvl: base_xp_cost,
       total_xp_to_next_lvl: base_xp_cost,
       base_xp_cost: base_xp_cost,
-      xp_scaling: 1.7,
+      xp_scaling: 1.4,
     };
   }
   add_xp({ xp_to_add, use_bonus = true }) {
     if (use_bonus) {
       xp_to_add *=
         (character.xp_bonuses.total_multiplier.hero || 1) *
-        (character.xp_bonuses.total_multiplier.all || 1);
+        (character.xp_bonuses.total_multiplier.all || 1) *
+        character.xp.current_level;
     }
     character.xp.total_xp += xp_to_add;
 
@@ -201,8 +202,8 @@ class Hero extends InventoryHaver {
     let gained_dex = 0;
     let gained_int = 0;
 
-    const gained_skill_xp_multiplier = 2;
-    let total_skill_xp_multiplier = 2;
+    const gained_skill_xp_multiplier = 1.03;
+    let total_skill_xp_multiplier = 1;
 
     for (let i = character.xp.current_level + 1; i <= level; i++) {
       gained_str += Math.ceil(i / 10);

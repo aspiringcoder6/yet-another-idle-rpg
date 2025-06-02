@@ -41,7 +41,7 @@ class Skill {
     },
     parent_skill = null,
     milestones = {},
-    xp_scaling = 1.01,
+    xp_scaling = 1.8,
     is_unlocked = true,
     category,
   }) {
@@ -92,7 +92,7 @@ class Skill {
 
     this.milestones = milestones;
 
-    this.xp_scaling = 1.01;
+    this.xp_scaling = xp_scaling > 1 ? xp_scaling : 1.6;
     //how many times more xp needed for next level
   }
 
@@ -1000,7 +1000,7 @@ Multiplies attack speed, EP and AP in unarmed combat by ${
     names: { 0: "Night vision" },
     description: "Ability to see in darkness",
     base_xp_cost: 600,
-    xp_scaling: 1.01,
+    xp_scaling: 1.9,
     max_level: 10,
     category: "Environmental",
     get_effect_description: () => {
@@ -1062,7 +1062,7 @@ Multiplies attack speed, EP and AP in unarmed combat by ${
     names: { 0: "Presence sensing" },
     description: "Ability to sense a presence without using your eyes",
     base_xp_cost: 60,
-    xp_scaling: 1.01,
+    xp_scaling: 2,
     max_level: 20,
     category: "Environmental",
     get_effect_description: () => {
@@ -1141,7 +1141,7 @@ Multiplies attack speed, EP and AP in unarmed combat by ${
     category: "Environmental",
     base_xp_cost: 120,
     max_level: 40,
-    xp_scaling: 1.01,
+    xp_scaling: 1.9,
     get_effect_description: () => {
       return `Reduces eldritch effects by ^${
         Math.round(
@@ -1622,7 +1622,7 @@ Multiplies AP with daggers by ${
     base_xp_cost: 40,
     category: "Activity",
     max_level: 10,
-    xp_scaling: 1.01,
+    xp_scaling: 1.6,
     max_level_coefficient: 2,
     milestones: {
       1: {
@@ -1709,7 +1709,7 @@ Multiplies AP with daggers by ${
       "Good, regular sleep is the basis of getting stronger and helps your body heal.",
     base_xp_cost: 1000,
     visibility_treshold: 300,
-    xp_scaling: 1.01,
+    xp_scaling: 2,
     category: "Activity",
     max_level: 10,
     max_level_coefficient: 2.5,
@@ -2174,7 +2174,7 @@ Multiplies AP with daggers by ${
     category: "Gathering",
     base_xp_cost: 10,
     visibility_treshold: 4,
-    xp_scaling: 1.01,
+    xp_scaling: 1.6,
   });
 
   skills["Mining"] = new Skill({
@@ -2184,7 +2184,7 @@ Multiplies AP with daggers by ${
     category: "Gathering",
     base_xp_cost: 10,
     visibility_treshold: 4,
-    xp_scaling: 1.01,
+    xp_scaling: 1.6,
   });
 
   skills["Herbalism"] = new Skill({
@@ -2194,7 +2194,7 @@ Multiplies AP with daggers by ${
     category: "Gathering",
     base_xp_cost: 10,
     visibility_treshold: 4,
-    xp_scaling: 1.01,
+    xp_scaling: 1.6,
   });
 
   skills["Animal handling"] = new Skill({
@@ -2205,7 +2205,7 @@ Multiplies AP with daggers by ${
     category: "Gathering",
     base_xp_cost: 10,
     visibility_treshold: 4,
-    xp_scaling: 1.01,
+    xp_scaling: 1.6,
   });
 })();
 
@@ -2217,7 +2217,7 @@ Multiplies AP with daggers by ${
     description: "Turn smaller pieces into one bigger thing",
     category: "Crafting",
     base_xp_cost: 40,
-    xp_scaling: 1.01,
+    xp_scaling: 1.5,
     max_level: 60,
     get_effect_description: () => {
       return `Quality cap: ${
@@ -2231,7 +2231,7 @@ Multiplies AP with daggers by ${
     description: "Turning raw ore into raw metal",
     category: "Crafting",
     base_xp_cost: 40,
-    xp_scaling: 1.01,
+    xp_scaling: 1.5,
     max_level: 60,
   });
   skills["Forging"] = new Skill({
@@ -2240,7 +2240,7 @@ Multiplies AP with daggers by ${
     description: "Turning raw metal into something useful",
     category: "Crafting",
     base_xp_cost: 40,
-    xp_scaling: 1.01,
+    xp_scaling: 1.5,
     max_level: 60,
     get_effect_description: () => {
       return `Quality cap: ${
@@ -2267,7 +2267,7 @@ Multiplies AP with daggers by ${
     description: "Making the unedible edible",
     category: "Crafting",
     base_xp_cost: 40,
-    xp_scaling: 1.01,
+    xp_scaling: 1.5,
     max_level: 60,
   });
   skills["Alchemy"] = new Skill({
@@ -2277,7 +2277,7 @@ Multiplies AP with daggers by ${
       "Extracting and enhancing useful properties of the ingredients",
     category: "Crafting",
     base_xp_cost: 40,
-    xp_scaling: 1.01,
+    xp_scaling: 1.5,
     max_level: 60,
   });
 })();
@@ -2291,7 +2291,7 @@ Multiplies AP with daggers by ${
     description:
       "As it gets damaged, your skin regenerates to be tougher and tougher",
     base_xp_cost: 400,
-    xp_scaling: 1.01,
+    xp_scaling: 1.9,
     max_level: 30,
     max_level_bonus: 30,
     get_effect_description: () => {
@@ -2430,7 +2430,7 @@ Multiplies AP with daggers by ${
     category: "Character",
     base_xp_cost: 120,
     max_level: 10,
-    xp_scaling: 1.01,
+    xp_scaling: 2,
     milestones: {
       1: {
         xp_multipliers: {
@@ -2483,7 +2483,7 @@ Multiplies AP with daggers by ${
     flavour_text: "You are now breathing manually",
     base_xp_cost: 300,
     visibility_treshold: 290,
-    xp_scaling: 1.01,
+    xp_scaling: 1.6,
     category: "Character",
     max_level_coefficient: 2,
     max_level: 40,
